@@ -1,14 +1,14 @@
 name: Build FFmpeg for iOS
 
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
 
 jobs:
   build-ios:
-    runs-on: macos-14  
+    runs-on: macos-14
     
     steps:
-      - name: Checkout Repository 
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Install Build Tools
@@ -16,7 +16,7 @@ jobs:
           brew update
           brew install nasm yasm automake libtool pkg-config
 
-       - name: Clone and Run Build Script
+      - name: Clone and Run Build Script
         run: |
           git clone https://github.com
           cd FFmpeg-iOS-build-script
