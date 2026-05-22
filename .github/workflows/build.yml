@@ -11,14 +11,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Clone Build Script
+        uses: actions/checkout@v4
+        with:
+          repository: 'kewlbear/FFmpeg-iOS-build-script'
+          path: 'FFmpeg-iOS-build-script'
+
       - name: Install Build Tools
         run: |
           brew update
           brew install nasm yasm automake libtool pkg-config
 
-      - name: Clone and Run Build Script
+      - name: Run Build Script
         run: |
-          git clone https://github.com
           cd FFmpeg-iOS-build-script
           ./build-ffmpeg.sh
 
