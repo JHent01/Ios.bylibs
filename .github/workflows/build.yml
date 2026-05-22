@@ -1,14 +1,14 @@
 name: Build FFmpeg for iOS
 
 on:
-  workflow_dispatch: # Позволяет запускать сборку вручную кнопкой
+  workflow_dispatch:  
 
 jobs:
   build-ios:
-    runs-on: macos-14 # Используем macOS со встроенным Xcode
+    runs-on: macos-14  
     
     steps:
-      - name: Checkout Repository
+      - name: Checkout Repository 
         uses: actions/checkout@v4
 
       - name: Install Build Tools
@@ -20,7 +20,7 @@ jobs:
         run: |
           git clone https://github.com
           cd FFmpeg-iOS-build-script
-          # Запуск скрипта. Сборка может занять 15-25 минут
+           
           ./build-ffmpeg.sh
 
       - name: Pack and Upload Artifacts
