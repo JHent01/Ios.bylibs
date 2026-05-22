@@ -31,7 +31,9 @@ jobs:
       - name: Run Build Script
         run: |
           cd FFmpeg-iOS-build-script
-          ./build-ffmpeg.sh --version=7.0
+          # Прописываем версию 6.0 напрямую в настройки скрипта
+          sed -i '' 's/FFMPEG_VERSION="4.3.1"/FFMPEG_VERSION="6.0"/g' build-ffmpeg.sh
+          ./build-ffmpeg.sh
 
       - name: Pack and Upload Artifacts
         uses: actions/upload-artifact@v4
