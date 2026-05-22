@@ -22,6 +22,12 @@ jobs:
           brew update
           brew install nasm yasm automake libtool pkg-config
 
+      - name: Fix HTTP to HTTPS in script
+        run: |
+          cd FFmpeg-iOS-build-script
+          # Заменяем http://www.ffmpeg.org на https://ffmpeg.org внутри скрипта
+          sed -i '' 's/http:\/\/www.ffmpeg.org/https:\/\/www.ffmpeg.org/g' build-ffmpeg.sh
+
       - name: Run Build Script
         run: |
           cd FFmpeg-iOS-build-script
