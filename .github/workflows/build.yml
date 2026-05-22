@@ -16,11 +16,10 @@ jobs:
           brew update
           brew install nasm yasm automake libtool pkg-config
 
-      - name: Clone and Run Build Script
+       - name: Clone and Run Build Script
         run: |
           git clone https://github.com
           cd FFmpeg-iOS-build-script
-           
           ./build-ffmpeg.sh
 
       - name: Pack and Upload Artifacts
